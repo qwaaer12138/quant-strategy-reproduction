@@ -1,0 +1,166 @@
+# 固定量化回测股票池配置
+# 创建时间: 2026-02-06
+# 适用场景: 趋势跟踪、均值回归、多因子等多种策略回测
+
+version: "1.0"
+last_updated: "2026-02-06"
+
+# 核心股票池 (15只) - 覆盖主要行业和风格
+core_pool:
+  - ts_code: "600519.SH"
+    name: "贵州茅台"
+    industry: "消费"
+    style: "价值蓝筹"
+    description: "白酒行业龙头，长期慢牛走势，适合趋势和价值策略"
+    volatility: "中低"
+    trend_score: 5
+  - ts_code: "300750.SZ"
+    name: "宁德时代"
+    industry: "新能源"
+    style: "成长"
+    description: "锂电池龙头，科技成长标杆，适合趋势跟踪策略"
+    volatility: "高"
+    trend_score: 5
+  - ts_code: "600036.SH"
+    name: "招商银行"
+    industry: "银行"
+    style: "价值成长"
+    description: "零售银行龙头，波动率适中，适合均值回归策略"
+    volatility: "中低"
+    trend_score: 4
+  - ts_code: "002594.SZ"
+    name: "比亚迪"
+    industry: "汽车"
+    style: "成长周期"
+    description: "新能源汽车全产业链，趋势性强，适合趋势策略"
+    volatility: "高"
+    trend_score: 5
+  - ts_code: "300059.SZ"
+    name: "东方财富"
+    industry: "证券"
+    style: "互联网金融"
+    description: "互联网券商龙头，波动率高，适合日内和趋势策略"
+    volatility: "高"
+    trend_score: 4
+  - ts_code: "600276.SH"
+    name: "恒瑞医药"
+    industry: "医药"
+    style: "创新成长"
+    description: "创新药龙头，防御性强，适合多因子策略"
+    volatility: "中"
+    trend_score: 3
+  - ts_code: "601012.SH"
+    name: "隆基绿能"
+    industry: "光伏"
+    style: "成长周期"
+    description: "光伏行业龙头，趋势性明显，适合趋势跟踪"
+    volatility: "中高"
+    trend_score: 4
+  - ts_code: "600900.SH"
+    name: "长江电力"
+    industry: "公用事业"
+    style: "高股息"
+    description: "水电龙头，稳定现金流，适合套利策略"
+    volatility: "低"
+    trend_score: 2
+  - ts_code: "600309.SH"
+    name: "万华化学"
+    industry: "化工"
+    style: "周期成长"
+    description: "MDI全球龙头，周期属性强，适合均值回归"
+    volatility: "中高"
+    trend_score: 3
+  - ts_code: "002049.SZ"
+    name: "紫光国微"
+    industry: "半导体"
+    style: "科技成长"
+    description: "国产替代先锋，高波动，适合趋势策略"
+    volatility: "高"
+    trend_score: 5
+  - ts_code: "000858.SZ"
+    name: "五粮液"
+    industry: "消费"
+    style: "价值成长"
+    description: "白酒第二，趋势稳定，适合价值策略"
+    volatility: "中低"
+    trend_score: 4
+  - ts_code: "601318.SH"
+    name: "中国平安"
+    industry: "保险"
+    style: "金融蓝筹"
+    description: "综合金融龙头，估值修复空间大"
+    volatility: "中"
+    trend_score: 3
+  - ts_code: "688981.SH"
+    name: "中芯国际"
+    industry: "半导体"
+    style: "科技周期"
+    description: "国内晶圆制造龙头，波动大，适合趋势策略"
+    volatility: "高"
+    trend_score: 4
+  - ts_code: "600887.SH"
+    name: "伊利股份"
+    industry: "消费"
+    style: "价值蓝筹"
+    description: "乳制品龙头，业绩稳定，适合多因子策略"
+    volatility: "低"
+    trend_score: 3
+  - ts_code: "600030.SH"
+    name: "中信证券"
+    industry: "证券"
+    style: "金融蓝筹"
+    description: "券商龙头，流动性好，适合高频策略"
+    volatility: "中"
+    trend_score: 3
+
+# 行业分散度统计
+industry_distribution:
+  消费: 3
+  新能源: 2
+  银行: 1
+  证券: 2
+  医药: 1
+  半导体: 2
+  公用事业: 1
+  化工: 1
+  汽车: 1
+  光伏: 1
+
+# 风格分散度统计
+style_distribution:
+  价值蓝筹: 5
+  成长: 4
+  价值成长: 3
+  高股息: 1
+  周期成长: 2
+
+# 策略适配性
+strategy_fit:
+  trend_following:  # 适合趋势跟踪策略的股票(高趋势评分)
+    - "宁德时代"
+    - "比亚迪"
+    - "紫光国微"
+    - "贵州茅台"
+    - "隆基绿能"
+  mean_reversion:  # 适合均值回归策略的股票
+    - "招商银行"
+    - "长江电力"
+    - "万华化学"
+    - "中国平安"
+  factor_investing:  # 适合多因子策略的股票
+    - "贵州茅台"
+    - "招商银行"
+    - "宁德时代"
+    - "伊利股份"
+    - "恒瑞医药"
+  high_frequency:  # 适合高频交易的股票
+    - "东方财富"
+    - "中信证券"
+    - "宁德时代"
+    - "比亚迪"
+
+# 池维护说明
+maintenance:
+  update_frequency: "每季度末最后一个交易日"
+  review_criteria: ["业绩变化", "行业地位", "流动性", "波动率", "策略表现适配性"]
+  max_churn_rate: 20%  # 每次调整最多更换20%的股票
